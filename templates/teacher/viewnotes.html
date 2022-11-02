@@ -1,0 +1,26 @@
+{% extends 'teacher/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:80%" align="center">
+        <tr style="background-color: green;">
+            <th style="color:black;">Sl.No</th>
+            <th style="color:black;">title</th>
+            <th style="color:black;">Image</th>
+
+
+
+
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td class="">{{ forloop.counter }}</td>
+            <td>{{i.title}}</td>
+            <td><img  class="rounded"  style="width:80%; height:80%" src="{{i.image.url}}" > </td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

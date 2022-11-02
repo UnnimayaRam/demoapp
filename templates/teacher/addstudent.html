@@ -1,0 +1,16 @@
+{% extends 'teacher/index.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<form method="post" enctype="multipart/form-data" style="margin-left:350px;color:black;padding:20px;border:2px solid black;background-color: pink;border-collapse:collapse;width:500px;">
+    <center><h2><b><u>ADD STUDENT</u></b></h2></center>
+    {% csrf_token %}
+    {{form|crispy}}
+    {{form1|crispy}}
+
+
+    <br>
+    <br>
+    <center><button type="submit" class="btn btn-primary">Submit</button></center>
+
+</form>
+{% endblock %}

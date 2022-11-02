@@ -1,0 +1,24 @@
+{% extends 'teacher/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:80%" align="center">
+        <tr style="background-color: green;">
+            <th style="color:black;">Sl.No</th>
+            <th style="color:black;">Student</th>
+
+            <th style="color:black;">Attendence</th>
+
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td class="">{{ forloop.counter }}</td>
+            <td>{{i.name}}</td>
+
+            <td><a href="{% url 'mark_attendence' i.user_id %}">mark</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

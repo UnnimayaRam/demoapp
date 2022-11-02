@@ -1,0 +1,20 @@
+{% extends 'admin/index.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+<form method="post" enctype="multipart/form-data" style="background-color:pink;width:600px;height:600px;margin-left:200px;margin-right:200px;">
+   <center><h1><b><u>UPDATE COURSE</u></b></h1></center>
+    <div style="margin-left:100px;margin-top:50px;margin-right:100;">
+
+        {% csrf_token %}
+        {{form|crispy}}
+
+
+    </div>
+    <br>
+    <td>
+          <center> <button class="btn btn-primary" type="submit"><a style="color:black">FINISH</a></button></center>
+    </td>
+</form>
+{% endblock %}

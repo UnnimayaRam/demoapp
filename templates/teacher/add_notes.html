@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'teacher/index.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_filters %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST" enctype="multipart/form-data" style="margin-left:350px;color:black;padding:20px;border:2px solid black;background-color: pink;border-collapse:collapse;width:500px;">
+ <center><h2><b><u>Add notes</u></b></h2></center>
+    {% csrf_token %}
+    {{form|crispy}}
+
+<br>
+<div class="form-group">
+   <CENTER> <button type="submit" class="btn btn-primary" >upload</button></CENTER>
+</div>
+</form>
+</body>
+</html>
+{% endblock %}

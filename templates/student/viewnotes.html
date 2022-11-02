@@ -1,0 +1,35 @@
+{% extends 'student/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:80%" align="center">
+        <tr style="background-color: green;">
+            <th style="color:black;">Sl.No</th>
+            <th style="color:black;">title</th>
+            <th style="color:black;">subject</th>
+            <th style="color:black;">file</th>
+            <th style="color:black;">file</th>
+
+
+
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.subject}}</td>
+            <td>
+              <div class="form-group">
+                    <label class="form-control-label">click here</label>
+
+            <td><a href="{{i.note.url}}" download>{{i.note}}</a></td>
+              </div>
+            </td>
+
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

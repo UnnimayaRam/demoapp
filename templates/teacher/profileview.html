@@ -1,0 +1,36 @@
+
+
+
+{% extends 'teacher/index.html' %}
+{% block content %}
+<center>
+<div class="card" style="width: 26rem;">
+  <form method="post">
+    {% csrf_token %}
+   {% for i in data %}
+  <img src="{{i.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Profile</h5>
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush" >
+    <li class="list-group-item">Name:{{i.name}}</li>
+    <li class="list-group-item">Age:{{i.age}}</li>
+    <li class="list-group-item">Gender:{{i.gender}}</li>
+    <li class="list-group-item">Address:{{i.address}}</li>
+    <li class="list-group-item">Subject:{{i.subject}}</li>
+    <li class="list-group-item">Phone:{{i.phone_no}}</li>
+
+  </ul>
+  <div class="card-body">
+    <td>
+      <button class="btn btn-primary" type="submit"><a href="{% url 'update_teacher' i.id %}" style="color:black">Update</a></button>
+    </td>
+  </div>
+
+</form>
+    {% endfor %}
+</div>
+
+</center>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:80%" align="center">
+        <tr style="background-color: green;">
+            <th style="color:black;">Sl.No</th>
+            <th style="color:black;">Name</th>
+            <th style="color:black;">Image</th>
+            <th style="color:black;">Age</th>
+            <th style="color:black;">Gender</th>
+            <th style="color:black;">Address</th>
+            <th style="color:black;">Subject</th>
+            <th style="color:black;">Phone</th>
+            <th style="color:black;">Status</th>
+
+
+
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td class="">{{ forloop.counter }}</td>
+            <td>{{i.name}}</td>
+            <td><img  class="rounded"  style="width:80%; height:80%" src="{{i.image.url}}" > </td>
+            <td>{{i.age}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.subject}}</td>
+            <td>{{i.phone_no}}</td>
+            <td>
+                {% if i.status == 0 %}
+                <a href="{% url 'approveteacher'  i.id %}"><button class="btn btn-info" type="submit">Approve</button></a>
+                {% elif i.status == 1 %}
+                <p class="btn btn-success">Approved</p>
+                {% else %}
+                <p class="btn btn-danger">Rejected</p>
+                {% endif %}
+                <form action="{% url 'delete_teacher' i.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="teacher" value="{{i.id}}"/>
+                    <br>
+                    <button type="submit" class="btn btn-info">Reject</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

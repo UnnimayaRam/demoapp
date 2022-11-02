@@ -1,0 +1,41 @@
+{% extends 'teacher/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:80%" align="center">
+        <tr style="background-color: green;">
+            <th>Sl.No</th>
+            <th>photo</th>
+            <th>name</th>
+            <th>dob</th>
+            <th>Age</th>
+            <th>address</th>
+            <th>year</th>
+            <th>dept</th>
+            <th>phone</th>
+            <th>sid</th>
+            <th>gender</th>
+            <th>edit</th>
+            <th>edit</th>
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td class="">{{ forloop.counter }}</td>
+            <td><img  class="rounded"  style="width:80%; height:80%" src="{{i.image.url}}" > </td>
+            <td>{{i.name}}</td>
+            <td>{{i.dob}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.year}}</td>
+            <td>{{i.dept}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.sid}}</td>
+            <td>{{i.gender}}</td>
+
+            <td><a href="{% url 'delete_student' i.id %}"><button class="btn btn-danger" type="submit">Delete</button></a></td>
+            <td><a href="#"><button class="btn btn-info" type="submit">Update</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

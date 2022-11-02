@@ -1,0 +1,34 @@
+{% extends 'teacher/index.html' %}
+{% block content %}
+
+<center>
+    <table class="table table-dark table-striped" style="width:60%" align="center">
+        <center><h2 STYLE="color: RED;"><B><u>ASSIGNMENT FROM STUDENT</u></B></h2></center>
+        <tr style="background-color: green;">
+            <th style="color:black;">Sl.No</th>
+            <th style="color:black;">Student Name</th>
+<!--            <th style="color:black;">file</th>-->
+            <th style="color:black;">Download</th>
+
+
+
+        </tr>
+        {% for i in data %}
+        <tr style="background-color: green;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{i.Studentname}}</td>
+<!--            <td>-->
+<!--              <div class="form-group">-->
+<!--                    <label class="form-control-label">click here-&ndash;&gt;</label>-->
+
+            <td><a href="{{i.Assignment.url}}" download>{{i.Assignment}}</a></td>
+              </div>
+<!--            </td>-->
+
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

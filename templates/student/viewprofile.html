@@ -1,0 +1,39 @@
+{% extends 'student/index.html' %}
+{% block content %}
+<center>
+<div class="card" style="width: 26rem;">
+  <form method="post">
+    {% csrf_token %}
+   {% for i in data %}
+  <img src="{{i.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Profile</h5>
+    <p class="card-text"></p>
+  </div>
+  <ul class="list-group list-group-flush" >
+    <li class="list-group-item"><b>Name:</b>{{i.name}}</li>
+    <li class="list-group-item"><b>Date Of Birth:</b>{{i.dob}}</li>
+    <li class="list-group-item"><b>Age:</b>{{i.age}}</li>
+    <li class="list-group-item"><b>Address:</b>{{i.address}}</li>
+    <li class="list-group-item"><b>Year:</b>{{i.year}}</li>
+    <li class="list-group-item"><b>Department:</b>{{i.dept}}</li>
+    <li class="list-group-item"><b>Phone:</b>{{i.phone_no}}</li>
+    <li class="list-group-item"><b>Student Id:</b>{{i.sid}}</li>
+    <li class="list-group-item"><b>Gender:</b>{{i.gender}}</li>
+
+
+
+
+  </ul>
+  <div class="card-body">
+    <td>
+      <button class="btn btn-primary" type="submit"><a href="{% url 'update_teacher' i.id %}" style="color:black">Update</a></button>
+    </td>
+  </div>
+
+</form>
+    {% endfor %}
+</div>
+
+</center>
+{% endblock %}

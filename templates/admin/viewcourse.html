@@ -1,0 +1,30 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+<table class="table table-dark table-striped" style="margin-left:60px;margin-right:60px;color:black;padding:20px;border:2px solid green;border-collapse:collapse;width:40%;width:800px;">
+    <tr style="height:60px;background-color:green;">
+        <th style="color:black;">Sl.No</th>
+        <th style="color:black;">Department</th>
+        <th style="color:black;">Subject</th>
+        <th style="color:black;">Teacher</th>
+        <th style="color:black;">Description</th>
+        <th style="color:black;">Edit</th>
+        <th style="color:black;">Edit</th>
+
+    </tr>
+    {% csrf_token %}
+    {% for i in data %}
+    <tr style="background-color: green;">
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.dept}}</td>
+        <td>{{i.subject}}</td>
+        <td>{{i.teacher}}</td>
+        <td>{{i.description}}</td>
+        <td><a href="{% url 'updatecourse' i.id %}"><button class="btn btn-info" type="submit">Update</button></a></td>
+        <td><a href="{% url 'deletecourse' i.id%}"><button class="btn btn-danger" type="submit">Delete</button></a></td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

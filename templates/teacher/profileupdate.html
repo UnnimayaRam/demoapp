@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load crispy_forms_filters %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post"  enctype="multipart/form-data" style="margin-left:350px;color:black;padding:20px;border:2px solid black;background-color: pink;border-collapse:collapse;width:500px;">
+<CENTER><h2>PROFILE UPDATE</h2></CENTER>
+    {% csrf_token %}
+{{form1|crispy}}
+{{form2|crispy}}
+<CENTER><button type="submit" class="btn btn-primary" >UPDATE</button></CENTER>
+</form>
+</body>
+</html>
